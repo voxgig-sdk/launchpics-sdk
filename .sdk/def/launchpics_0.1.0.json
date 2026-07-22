@@ -1,0 +1,435 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "LaunchPics API",
+    "description": "The LaunchPics API allows users to upload, store, and manage images efficiently. It provides features such as image resizing, format conversion, and easy retrieval of images via a unique URL.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://launch.pics/api/"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://launch.pics/api",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/health": {
+      "get": {
+        "summary": "Health Check",
+        "description": "Check the health status of the LaunchPics API",
+        "operationId": "getHealth",
+        "tags": [
+          "Health"
+        ],
+        "responses": {
+          "200": {
+            "description": "API is healthy and operational",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "healthy"
+                    },
+                    "timestamp": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/upload": {
+      "post": {
+        "summary": "Upload Image",
+        "description": "Upload an image to LaunchPics for storage and processing",
+        "operationId": "uploadImage",
+        "tags": [
+          "Images"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "image"
+                ],
+                "properties": {
+                  "image": {
+                    "type": "string",
+                    "format": "binary",
+                    "description": "The image file to upload"
+                  },
+                  "resize": {
+                    "type": "string",
+                    "description": "Resize parameters (e.g., width x height)"
+                  },
+                  "format": {
+                    "type": "string",
+                    "enum": [
+                      "jpg",
+                      "png",
+                      "webp",
+                      "gif"
+                    ],
+                    "description": "Target format for conversion"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Image uploaded successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "url": {
+                      "type": "string",
+                      "format": "uri",
+                      "description": "Unique URL to access the uploaded image"
+                    },
+                    "id": {
+                      "type": "string",
+                      "description": "Unique identifier for the uploaded image"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid image or parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Payload too large - image file exceeds size limit",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/images/{imageId}": {
+      "get": {
+        "summary": "Retrieve Image",
+        "description": "Retrieve an image by its unique identifier",
+        "operationId": "getImage",
+        "tags": [
+          "Images"
+        ],
+        "parameters": [
+          {
+            "name": "imageId",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the image",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "width",
+            "in": "query",
+            "required": false,
+            "description": "Desired width for image resizing",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "height",
+            "in": "query",
+            "required": false,
+            "description": "Desired height for image resizing",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "required": false,
+            "description": "Desired format for the image",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "jpg",
+                "png",
+                "webp",
+                "gif"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Image retrieved successfully",
+            "content": {
+              "image/jpeg": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/png": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/webp": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/gif": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Image not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete Image",
+        "description": "Delete an image by its unique identifier",
+        "operationId": "deleteImage",
+        "tags": [
+          "Images"
+        ],
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "imageId",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the image to delete",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Image deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Image deleted successfully"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - API key missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Image not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/process": {
+      "post": {
+        "summary": "AI Image Processing",
+        "description": "Process images using AI - describe edits in plain English",
+        "operationId": "processImage",
+        "tags": [
+          "AI Processing"
+        ],
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "imageId",
+                  "instruction"
+                ],
+                "properties": {
+                  "imageId": {
+                    "type": "string",
+                    "description": "ID of the image to process"
+                  },
+                  "instruction": {
+                    "type": "string",
+                    "description": "Plain English description of desired edits",
+                    "example": "Make the background blue and remove the person on the right"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Image processed successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "processedImageId": {
+                      "type": "string",
+                      "description": "ID of the newly processed image"
+                    },
+                    "url": {
+                      "type": "string",
+                      "format": "uri",
+                      "description": "URL to access the processed image"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - API key missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "example": false
+          },
+          "error": {
+            "type": "string",
+            "description": "Error message describing what went wrong"
+          },
+          "code": {
+            "type": "string",
+            "description": "Error code for programmatic handling"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-API-Key",
+        "description": "API key for authentication"
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Health",
+      "description": "Health check endpoints"
+    },
+    {
+      "name": "Images",
+      "description": "Image upload, retrieval, and management"
+    },
+    {
+      "name": "AI Processing",
+      "description": "AI-powered image processing and editing"
+    }
+  ]
+}

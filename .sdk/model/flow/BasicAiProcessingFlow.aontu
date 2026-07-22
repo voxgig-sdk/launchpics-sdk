@@ -1,0 +1,18 @@
+# BasicAiProcessingFlow
+
+main: kit: flow: BasicAiProcessingFlow:
+{
+  entity: "ai_processing",
+  kind: "basic",
+  name: "BasicAiProcessingFlow",
+  step: [
+    {
+      input: {
+        ref: "ai_processing_ref01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicAiProcessingFlow"
+}

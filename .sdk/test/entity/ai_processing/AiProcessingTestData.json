@@ -1,0 +1,41 @@
+{
+  "existing": {
+    "ai_processing": {
+      "AI_PROCESSING00": {
+        "image_id": "IMAGE01",
+        "instruction": "s33",
+        "processed_image_id": "PROCESSED_IMAGE01",
+        "success": false,
+        "url": "s36",
+        "id": "AI_PROCESSING00"
+      },
+      "AI_PROCESSING01": {
+        "image_id": "IMAGE01",
+        "instruction": "s65",
+        "processed_image_id": "PROCESSED_IMAGE01",
+        "success": false,
+        "url": "s68",
+        "id": "AI_PROCESSING01"
+      },
+      "AI_PROCESSING02": {
+        "image_id": "IMAGE01",
+        "instruction": "s97",
+        "processed_image_id": "PROCESSED_IMAGE01",
+        "success": false,
+        "url": "s9a",
+        "id": "AI_PROCESSING02"
+      }
+    }
+  },
+  "new": {
+    "ai_processing": {
+      "ai_processing_ref01": {
+        "image_id": "IMAGE01",
+        "instruction": "sc9",
+        "processed_image_id": "PROCESSED_IMAGE01",
+        "success": false,
+        "url": "scc"
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+<?php
+declare(strict_types=1);
+
+// Launchpics SDK utility registration
+
+require_once __DIR__ . '/../core/UtilityType.php';
+require_once __DIR__ . '/Clean.php';
+require_once __DIR__ . '/Done.php';
+require_once __DIR__ . '/MakeError.php';
+require_once __DIR__ . '/FeatureAdd.php';
+require_once __DIR__ . '/FeatureHook.php';
+require_once __DIR__ . '/FeatureInit.php';
+require_once __DIR__ . '/Fetcher.php';
+require_once __DIR__ . '/MakeFetchDef.php';
+require_once __DIR__ . '/MakeContext.php';
+require_once __DIR__ . '/MakeOptions.php';
+require_once __DIR__ . '/MakeRequest.php';
+require_once __DIR__ . '/MakeResponse.php';
+require_once __DIR__ . '/MakeResult.php';
+require_once __DIR__ . '/MakePoint.php';
+require_once __DIR__ . '/MakeSpec.php';
+require_once __DIR__ . '/MakeUrl.php';
+require_once __DIR__ . '/Param.php';
+require_once __DIR__ . '/PrepareAuth.php';
+require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/PrepareHeaders.php';
+require_once __DIR__ . '/PrepareMethod.php';
+require_once __DIR__ . '/PrepareParams.php';
+require_once __DIR__ . '/PreparePath.php';
+require_once __DIR__ . '/PrepareQuery.php';
+require_once __DIR__ . '/ResultBasic.php';
+require_once __DIR__ . '/ResultBody.php';
+require_once __DIR__ . '/ResultHeaders.php';
+require_once __DIR__ . '/TransformRequest.php';
+require_once __DIR__ . '/TransformResponse.php';
+
+LaunchpicsUtility::setRegistrar(function (LaunchpicsUtility $u): void {
+    $u->clean = [LaunchpicsClean::class, 'call'];
+    $u->done = [LaunchpicsDone::class, 'call'];
+    $u->make_error = [LaunchpicsMakeError::class, 'call'];
+    $u->feature_add = [LaunchpicsFeatureAdd::class, 'call'];
+    $u->feature_hook = [LaunchpicsFeatureHook::class, 'call'];
+    $u->feature_init = [LaunchpicsFeatureInit::class, 'call'];
+    $u->fetcher = [LaunchpicsFetcher::class, 'call'];
+    $u->make_fetch_def = [LaunchpicsMakeFetchDef::class, 'call'];
+    $u->make_context = [LaunchpicsMakeContext::class, 'call'];
+    $u->make_options = [LaunchpicsMakeOptions::class, 'call'];
+    $u->make_request = [LaunchpicsMakeRequest::class, 'call'];
+    $u->make_response = [LaunchpicsMakeResponse::class, 'call'];
+    $u->make_result = [LaunchpicsMakeResult::class, 'call'];
+    $u->make_point = [LaunchpicsMakePoint::class, 'call'];
+    $u->make_spec = [LaunchpicsMakeSpec::class, 'call'];
+    $u->make_url = [LaunchpicsMakeUrl::class, 'call'];
+    $u->param = [LaunchpicsParam::class, 'call'];
+    $u->prepare_auth = [LaunchpicsPrepareAuth::class, 'call'];
+    $u->prepare_body = [LaunchpicsPrepareBody::class, 'call'];
+    $u->prepare_headers = [LaunchpicsPrepareHeaders::class, 'call'];
+    $u->prepare_method = [LaunchpicsPrepareMethod::class, 'call'];
+    $u->prepare_params = [LaunchpicsPrepareParams::class, 'call'];
+    $u->prepare_path = [LaunchpicsPreparePath::class, 'call'];
+    $u->prepare_query = [LaunchpicsPrepareQuery::class, 'call'];
+    $u->result_basic = [LaunchpicsResultBasic::class, 'call'];
+    $u->result_body = [LaunchpicsResultBody::class, 'call'];
+    $u->result_headers = [LaunchpicsResultHeaders::class, 'call'];
+    $u->transform_request = [LaunchpicsTransformRequest::class, 'call'];
+    $u->transform_response = [LaunchpicsTransformResponse::class, 'call'];
+});

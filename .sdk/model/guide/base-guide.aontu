@@ -1,0 +1,31 @@
+# Guide
+
+guide: {
+  metrics: count: entity: 3
+  metrics: count: path: 4
+  metrics: count: method: 5
+
+  entity: ai_processing: {
+    path: "/process": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: health: {
+    path: "/health": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: image: {
+    path: "/images/{imageId}": {
+      rename: param: "imageId": *"id"
+      op: load: method: *GET
+      op: remove: method: *DELETE
+    }
+    path: "/upload": {
+      op: create: method: *POST
+    }
+  }
+
+}

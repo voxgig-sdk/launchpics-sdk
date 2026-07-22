@@ -1,0 +1,31 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        url: "https://launch.pics/api/"
+      }
+      description: "The LaunchPics API allows users to upload, store, and manage images efficiently. It provides features such as image resizing, format conversion, and easy retrieval of images via a unique URL."
+      security: {
+        in: "header"
+        name: "X-API-Key"
+        prefix: ""
+        scheme: "ApiKeyAuth"
+        type: "apiKey"
+      }
+      servers: [
+        {
+          description: "Production server"
+          url: "https://launch.pics/api"
+        }
+      ]
+      summary: "The LaunchPics API allows users to upload, store, and manage images efficiently."
+      title: "LaunchPics API"
+      version: "1.0.0"
+      website: "https://launch.pics"
+    }
+  }
+}
+

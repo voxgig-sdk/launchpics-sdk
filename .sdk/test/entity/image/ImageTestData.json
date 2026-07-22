@@ -1,0 +1,29 @@
+{
+  "existing": {
+    "image": {
+      "IMAGE00": {
+        "id": "IMAGE00",
+        "success": false,
+        "url": "s20"
+      },
+      "IMAGE01": {
+        "id": "IMAGE01",
+        "success": false,
+        "url": "s3e"
+      },
+      "IMAGE02": {
+        "id": "IMAGE02",
+        "success": false,
+        "url": "s5c"
+      }
+    }
+  },
+  "new": {
+    "image": {
+      "image_ref01": {
+        "success": false,
+        "url": "s7a"
+      }
+    }
+  }
+}

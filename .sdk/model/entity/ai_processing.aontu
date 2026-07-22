@@ -1,0 +1,57 @@
+# Entity: ai_processing
+
+main: kit: entity: ai_processing: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "image_id"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "instruction"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "processed_image_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "success"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "url"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "ai_processing"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          method: "POST"
+          orig: "/process"
+          parts: [
+            "process"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}
