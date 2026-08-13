@@ -6,17 +6,17 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 
 export interface AiProcessing {
-  image_id: string
+  imageId: string
   instruction: string
-  processed_image_id?: string
+  processedImageId?: string
   success?: boolean
   url?: string
 }
 
 export interface AiProcessingCreateData {
-  image_id: string
+  imageId: string
   instruction: string
-  processed_image_id?: string
+  processedImageId?: string
   success?: boolean
   url?: string
 }

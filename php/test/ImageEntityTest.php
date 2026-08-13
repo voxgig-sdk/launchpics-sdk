@@ -44,7 +44,7 @@ class ImageEntityTest extends TestCase
             Vs::getpath($setup["data"], "new.image"), "image_ref01"));
 
         $image_ref01_data_result = $image_ref01_ent->create($image_ref01_data, null);
-        $image_ref01_data = Helpers::to_map($image_ref01_data_result);
+        $image_ref01_data = Helpers::to_map(is_object($image_ref01_data_result) && method_exists($image_ref01_data_result, 'data_get') ? $image_ref01_data_result->data_get() : $image_ref01_data_result);
         $this->assertNotNull($image_ref01_data);
         $this->assertNotNull($image_ref01_data["id"]);
 
@@ -53,7 +53,7 @@ class ImageEntityTest extends TestCase
             "id" => $image_ref01_data["id"],
         ];
         $image_ref01_data_dt0_loaded = $image_ref01_ent->load($image_ref01_match_dt0, null);
-        $image_ref01_data_dt0_load_result = Helpers::to_map($image_ref01_data_dt0_loaded);
+        $image_ref01_data_dt0_load_result = Helpers::to_map(is_object($image_ref01_data_dt0_loaded) && method_exists($image_ref01_data_dt0_loaded, 'data_get') ? $image_ref01_data_dt0_loaded->data_get() : $image_ref01_data_dt0_loaded);
         $this->assertNotNull($image_ref01_data_dt0_load_result);
         $this->assertEquals($image_ref01_data_dt0_load_result["id"], $image_ref01_data["id"]);
 

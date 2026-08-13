@@ -62,7 +62,7 @@ describe('AiProcessingEntity', async () => {
     const ai_processing_ref01_ent = client.AiProcessing()
     let ai_processing_ref01_data = setup.data.new.ai_processing['ai_processing_ref01']
 
-    ai_processing_ref01_data = await ai_processing_ref01_ent.create(ai_processing_ref01_data)
+    ai_processing_ref01_data = (await ai_processing_ref01_ent.create(ai_processing_ref01_data)).data()
     assert(null != ai_processing_ref01_data)
 
 

@@ -37,7 +37,7 @@ class ImageEntityTest < Minitest::Test
       Vs.getpath(setup[:data], "new.image"), "image_ref01"))
 
     image_ref01_data_result = image_ref01_ent.create(image_ref01_data, nil)
-    image_ref01_data = Helpers.to_map(image_ref01_data_result)
+    image_ref01_data = Helpers.to_map(image_ref01_data_result.respond_to?(:data_get) ? image_ref01_data_result.data_get : image_ref01_data_result)
     assert !image_ref01_data.nil?
     assert !image_ref01_data["id"].nil?
 
@@ -46,7 +46,7 @@ class ImageEntityTest < Minitest::Test
       "id" => image_ref01_data["id"],
     }
     image_ref01_data_dt0_loaded = image_ref01_ent.load(image_ref01_match_dt0, nil)
-    image_ref01_data_dt0_load_result = Helpers.to_map(image_ref01_data_dt0_loaded)
+    image_ref01_data_dt0_load_result = Helpers.to_map(image_ref01_data_dt0_loaded.respond_to?(:data_get) ? image_ref01_data_dt0_loaded.data_get : image_ref01_data_dt0_loaded)
     assert !image_ref01_data_dt0_load_result.nil?
     assert_equal image_ref01_data_dt0_load_result["id"], image_ref01_data["id"]
 

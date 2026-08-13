@@ -6,9 +6,9 @@ import time
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from launchpics_sdk.utility.voxgig_struct import voxgig_struct as vs
 from launchpics_sdk import LaunchpicsSDK
-from core import helpers
+from launchpics_sdk.core import helpers
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 from test import runner
@@ -44,7 +44,7 @@ class TestAiProcessingEntity:
         ai_processing_ref01_data = helpers.to_map(vs.getprop(
             vs.getpath(setup["data"], "new.ai_processing"), "ai_processing_ref01"))
 
-        ai_processing_ref01_data = helpers.to_map(ai_processing_ref01_ent.create(ai_processing_ref01_data, None))
+        ai_processing_ref01_data = helpers.to_map(runner.entity_data(ai_processing_ref01_ent.create(ai_processing_ref01_data, None)))
         assert ai_processing_ref01_data is not None
 
 

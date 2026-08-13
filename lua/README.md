@@ -39,7 +39,7 @@ local client = sdk.new({
 
 ```lua
 -- Create
-local created, err = client:AiProcessing():create({ image_id = "example_image_id", instruction = "example_instruction" })
+local created, err = client:AiProcessing():create({ imageId = "example_imageId", instruction = "example_instruction" })
 if err then error(err) end
 
 ```
@@ -221,9 +221,9 @@ data **directly** — there is no wrapper:
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local ai_processing, err = client:AiProcessing():load()
+    local health, err = client:Health():load()
     if err then error(err) end
-    -- ai_processing is the loaded record
+    -- health is the loaded record
 
 Only `direct()` returns a response envelope — a `table` with `ok`,
 `status`, `headers`, and `data` keys.
@@ -234,9 +234,9 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `image_id` |  |
+| `imageId` |  |
 | `instruction` |  |
-| `processed_image_id` |  |
+| `processedImageId` |  |
 | `success` |  |
 | `url` |  |
 
@@ -286,9 +286,9 @@ Create an instance: `local ai_processing = client:AiProcessing(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `image_id` | `string` |  |
+| `imageId` | `string` |  |
 | `instruction` | `string` |  |
-| `processed_image_id` | `string` |  |
+| `processedImageId` | `string` |  |
 | `success` | `boolean` |  |
 | `url` | `string` |  |
 
@@ -296,7 +296,7 @@ Create an instance: `local ai_processing = client:AiProcessing(nil)`
 
 ```lua
 local ai_processing, err = client:AiProcessing():create({
-  image_id = "example_image_id", -- string
+  imageId = "example_imageId", -- string
   instruction = "example_instruction", -- string
 })
 ```

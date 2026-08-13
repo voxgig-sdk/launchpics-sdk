@@ -24,7 +24,7 @@ support (`load`, `create`, `remove`):
 ```ts
 const client = new LaunchpicsSDK()
 const aiprocessing = await client.AiProcessing().create({
-  image_id: 'example',
+  imageId: 'example',
   instruction: 'example',
 })
 ```
@@ -41,9 +41,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = LaunchpicsSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = LaunchpicsSDK.test({
+  entity: {
+    health: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const health = await client.Health().load()
-// health is a bare Health populated with mock data
+// health is the Health entity, populated with mock data
+// — call health.data() for the record itself
 console.log(health)
 ```
 
@@ -157,7 +166,7 @@ The API exposes 3 entities:
 | --- | --- | --- |
 | **AiProcessing** | The AiProcessing entity (create). | `/process` |
 | **Health** | The Health entity (load). | `/health` |
-| **Image** | The Image entity (create, load, remove). | `/upload` |
+| **Image** | The Image entity (create, load, remove). | `/images/{imageId}` |
 
 The operations available across these entities are **load**, **create**, **remove** — see each entity's
 own list above for exactly which it supports.
@@ -337,6 +346,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://launch.pics/api/](https://launch.pics/api/)
 

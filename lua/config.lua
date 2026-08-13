@@ -31,7 +31,7 @@ local function make_config()
         ["fields"] = {
           {
             ["active"] = true,
-            ["name"] = "image_id",
+            ["name"] = "imageId",
             ["req"] = true,
             ["type"] = "`$STRING`",
             ["index$"] = 0,
@@ -45,7 +45,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "processed_image_id",
+            ["name"] = "processedImageId",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 2,
@@ -74,6 +74,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/process",
                 ["parts"] = {
@@ -120,6 +121,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/health",
                 ["parts"] = {
@@ -173,6 +175,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/upload",
                 ["parts"] = {
@@ -233,6 +236,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/images/{imageId}",
                 ["parts"] = {
@@ -280,6 +284,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "DELETE",
                 ["orig"] = "/images/{imageId}",
                 ["parts"] = {

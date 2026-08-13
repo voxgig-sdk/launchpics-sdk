@@ -102,9 +102,9 @@ ai_processing = client.AiProcessing
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `image_id` | `String` | Yes |  |
+| `imageId` | `String` | Yes |  |
 | `instruction` | `String` | Yes |  |
-| `processed_image_id` | `String` | No |  |
+| `processedImageId` | `String` | No |  |
 | `success` | `Boolean` | No |  |
 | `url` | `String` | No |  |
 
@@ -116,7 +116,7 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.AiProcessing.create({
-  "image_id" => "example_image_id", # String
+  "imageId" => "example_imageId", # String
   "instruction" => "example_instruction", # String
 })
 ```

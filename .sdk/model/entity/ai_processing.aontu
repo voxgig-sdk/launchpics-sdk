@@ -6,7 +6,7 @@ main: kit: entity: ai_processing: {
 
   fields: [
     {
-      name: "image_id"
+      name: "imageId"
       req: true
       type: "`$STRING`"
     }
@@ -16,7 +16,7 @@ main: kit: entity: ai_processing: {
       type: "`$STRING`"
     }
     {
-      name: "processed_image_id"
+      name: "processedImageId"
       req: false
       type: "`$STRING`"
     }

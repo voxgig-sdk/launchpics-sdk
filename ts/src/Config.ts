@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'Launchpics',
   }
 
 
@@ -66,7 +66,7 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "image_id",
+          "name": "imageId",
           "req": true,
           "type": "`$STRING`",
           "index$": 0
@@ -80,7 +80,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "processed_image_id",
+          "name": "processedImageId",
           "req": false,
           "type": "`$STRING`",
           "index$": 2
@@ -109,6 +109,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/process",
               "parts": [
@@ -155,6 +156,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/health",
               "parts": [
@@ -208,6 +210,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/upload",
               "parts": [
@@ -268,6 +271,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/images/{imageId}",
               "parts": [
@@ -315,6 +319,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/images/{imageId}",
               "parts": [

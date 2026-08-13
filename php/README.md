@@ -36,8 +36,8 @@ $client = new LaunchpicsSDK([
 ### 4. Create, update, and remove
 
 ```php
-// create() returns the bare created AiProcessing record.
-$created = $client->AiProcessing()->create(["image_id" => "example_image_id", "instruction" => "example_instruction"]);
+// create() returns the ENTITY — call data_get() for the created AiProcessing record.
+$created = $client->AiProcessing()->create(["imageId" => "example_imageId", "instruction" => "example_instruction"]);
 
 ```
 
@@ -121,7 +121,8 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = LaunchpicsSDK::test();
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $health = $client->Health()->load();
 print_r($health);
 ```
@@ -226,7 +227,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -248,9 +249,9 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `image_id` |  |
+| `imageId` |  |
 | `instruction` |  |
-| `processed_image_id` |  |
+| `processedImageId` |  |
 | `success` |  |
 | `url` |  |
 
@@ -300,9 +301,9 @@ Create an instance: `$ai_processing = $client->AiProcessing();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `image_id` | `string` |  |
+| `imageId` | `string` |  |
 | `instruction` | `string` |  |
-| `processed_image_id` | `string` |  |
+| `processedImageId` | `string` |  |
 | `success` | `bool` |  |
 | `url` | `string` |  |
 
@@ -310,7 +311,7 @@ Create an instance: `$ai_processing = $client->AiProcessing();`
 
 ```php
 $ai_processing = $client->AiProcessing()->create([
-    "image_id" => null, // string
+    "imageId" => null, // string
     "instruction" => null, // string
 ]);
 ```
@@ -336,7 +337,7 @@ Create an instance: `$health = $client->Health();`
 #### Example: Load
 
 ```php
-// load() returns the bare Health record (throws on error).
+// load() returns the ENTITY — call data_get() for the Health record (throws on error).
 $health = $client->Health()->load();
 ```
 
@@ -364,7 +365,7 @@ Create an instance: `$image = $client->Image();`
 #### Example: Load
 
 ```php
-// load() returns the bare Image record (throws on error).
+// load() returns the ENTITY — call data_get() for the Image record (throws on error).
 $image = $client->Image()->load(["id" => "image_id"]);
 ```
 

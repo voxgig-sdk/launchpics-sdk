@@ -101,9 +101,9 @@ $ai_processing = $client->AiProcessing();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `image_id` | `string` | Yes |  |
+| `imageId` | `string` | Yes |  |
 | `instruction` | `string` | Yes |  |
-| `processed_image_id` | `string` | No |  |
+| `processedImageId` | `string` | No |  |
 | `success` | `bool` | No |  |
 | `url` | `string` | No |  |
 
@@ -115,7 +115,7 @@ Create a new entity with the given data. Throws on error.
 
 ```php
 $result = $client->AiProcessing()->create([
-  "image_id" => null, // string
+  "imageId" => null, // string
   "instruction" => null, // string
 ]);
 ```

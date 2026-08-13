@@ -141,9 +141,9 @@ const ai_processing = client.AiProcessing()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `image_id` | `string` | Yes |  |
+| `imageId` | `string` | Yes |  |
 | `instruction` | `string` | Yes |  |
-| `processed_image_id` | `string` | No |  |
+| `processedImageId` | `string` | No |  |
 | `success` | `boolean` | No |  |
 | `url` | `string` | No |  |
 
@@ -155,7 +155,7 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.AiProcessing().create({
-  image_id: 'example_image_id',
+  imageId: 'example_imageId',
   instruction: 'example_instruction',
 })
 ```

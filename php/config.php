@@ -37,7 +37,7 @@ class LaunchpicsConfig
           'fields' => [
             [
               'active' => true,
-              'name' => 'image_id',
+              'name' => 'imageId',
               'req' => true,
               'type' => '`$STRING`',
               'index$' => 0,
@@ -51,7 +51,7 @@ class LaunchpicsConfig
             ],
             [
               'active' => true,
-              'name' => 'processed_image_id',
+              'name' => 'processedImageId',
               'req' => false,
               'type' => '`$STRING`',
               'index$' => 2,
@@ -80,6 +80,7 @@ class LaunchpicsConfig
                 [
                   'active' => true,
                   'args' => [],
+                  'kind' => 'http',
                   'method' => 'POST',
                   'orig' => '/process',
                   'parts' => [
@@ -126,6 +127,7 @@ class LaunchpicsConfig
                 [
                   'active' => true,
                   'args' => [],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/health',
                   'parts' => [
@@ -179,6 +181,7 @@ class LaunchpicsConfig
                 [
                   'active' => true,
                   'args' => [],
+                  'kind' => 'http',
                   'method' => 'POST',
                   'orig' => '/upload',
                   'parts' => [
@@ -239,6 +242,7 @@ class LaunchpicsConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/images/{imageId}',
                   'parts' => [
@@ -286,6 +290,7 @@ class LaunchpicsConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'DELETE',
                   'orig' => '/images/{imageId}',
                   'parts' => [

@@ -54,7 +54,7 @@ func main() {
     })
 
     // Create a aiProcessing.
-    created, err := client.AiProcessing(nil).Create(map[string]any{"image_id": "example_image_id", "instruction": "example_instruction"}, nil)
+    created, err := client.AiProcessing(nil).Create(map[string]any{"imageId": "example_imageId", "instruction": "example_instruction"}, nil)
     if err != nil {
         panic(err)
     }
@@ -267,9 +267,9 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"image_id"` |  |
+| `"imageId"` |  |
 | `"instruction"` |  |
-| `"processed_image_id"` |  |
+| `"processedImageId"` |  |
 | `"success"` |  |
 | `"url"` |  |
 
@@ -319,9 +319,9 @@ Create an instance: `aiProcessing := client.AiProcessing(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `image_id` | `string` |  |
+| `imageId` | `string` |  |
 | `instruction` | `string` |  |
-| `processed_image_id` | `string` |  |
+| `processedImageId` | `string` |  |
 | `success` | `bool` |  |
 | `url` | `string` |  |
 
@@ -329,7 +329,7 @@ Create an instance: `aiProcessing := client.AiProcessing(nil)`
 
 ```go
 result, err := client.AiProcessing(nil).Create(map[string]any{
-    "image_id": "example_image_id",
+    "imageId": "example_imageId",
     "instruction": "example_instruction",
 }, nil)
 if err != nil {

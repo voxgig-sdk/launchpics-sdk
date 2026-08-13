@@ -38,9 +38,9 @@ const client = new LaunchpicsSDK({
 ### 4. Create, update, and remove
 
 ```ts
-// Create — returns the created AiProcessing
+// Create — returns the created AiProcessing ENTITY (.data() for the record)
 const created = await client.AiProcessing().create({
-  image_id: 'example_image_id',
+  imageId: 'example_imageId',
   instruction: 'example_instruction',
 })
 
@@ -121,7 +121,8 @@ Create a mock client for unit testing — no server required:
 const client = LaunchpicsSDK.test()
 
 const health = await client.Health().load()
-// health is a bare entity populated with mock response data
+// health is the entity, populated with mock response data
+// — call health.data() for the record itself
 console.log(health)
 ```
 
@@ -293,9 +294,9 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `image_id` |  |
+| `imageId` |  |
 | `instruction` |  |
-| `processed_image_id` |  |
+| `processedImageId` |  |
 | `success` |  |
 | `url` |  |
 
@@ -345,9 +346,9 @@ Create an instance: `const ai_processing = client.AiProcessing()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `image_id` | `string` |  |
+| `imageId` | `string` |  |
 | `instruction` | `string` |  |
-| `processed_image_id` | `string` |  |
+| `processedImageId` | `string` |  |
 | `success` | `boolean` |  |
 | `url` | `string` |  |
 
@@ -355,7 +356,7 @@ Create an instance: `const ai_processing = client.AiProcessing()`
 
 ```ts
 const ai_processing = await client.AiProcessing().create({
-  image_id: 'example_image_id',
+  imageId: 'example_imageId',
   instruction: 'example_instruction',
 })
 ```

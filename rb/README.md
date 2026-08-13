@@ -35,8 +35,8 @@ client = LaunchpicsSDK.new({
 ### 4. Create, update, and remove
 
 ```ruby
-# create returns the bare created AiProcessing record.
-created = client.AiProcessing.create({ "image_id" => "example_image_id", "instruction" => "example_instruction" })
+# create returns the ENTITY — call data_get for the created AiProcessing record.
+created = client.AiProcessing.create({ "imageId" => "example_imageId", "instruction" => "example_instruction" })
 
 ```
 
@@ -115,7 +115,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = LaunchpicsSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 health = client.Health.load()
 puts health
 ```
@@ -238,9 +239,9 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `image_id` |  |
+| `imageId` |  |
 | `instruction` |  |
-| `processed_image_id` |  |
+| `processedImageId` |  |
 | `success` |  |
 | `url` |  |
 
@@ -290,9 +291,9 @@ Create an instance: `ai_processing = client.AiProcessing`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `image_id` | `String` |  |
+| `imageId` | `String` |  |
 | `instruction` | `String` |  |
-| `processed_image_id` | `String` |  |
+| `processedImageId` | `String` |  |
 | `success` | `Boolean` |  |
 | `url` | `String` |  |
 
@@ -300,7 +301,7 @@ Create an instance: `ai_processing = client.AiProcessing`
 
 ```ruby
 ai_processing = client.AiProcessing.create({
-  "image_id" => "example_image_id", # String
+  "imageId" => "example_imageId", # String
   "instruction" => "example_instruction", # String
 })
 ```
@@ -326,7 +327,7 @@ Create an instance: `health = client.Health`
 #### Example: Load
 
 ```ruby
-# load returns the bare Health record (raises on error).
+# load returns the ENTITY — call data_get for the Health record (raises on error).
 health = client.Health.load()
 ```
 
@@ -354,7 +355,7 @@ Create an instance: `image = client.Image`
 #### Example: Load
 
 ```ruby
-# load returns the bare Image record (raises on error).
+# load returns the ENTITY — call data_get for the Image record (raises on error).
 image = client.Image.load({ "id" => "image_id" })
 ```
 

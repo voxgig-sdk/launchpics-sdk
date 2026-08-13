@@ -62,7 +62,7 @@ describe('HealthEntity', async () => {
     // LOAD
     const health_ref01_ent = client.Health()
     const health_ref01_match_dt0: any = {}
-    const health_ref01_data_dt0 = await health_ref01_ent.load(health_ref01_match_dt0)
+    const health_ref01_data_dt0 = (await health_ref01_ent.load(health_ref01_match_dt0)).data()
     assert(null != health_ref01_data_dt0)
 
 

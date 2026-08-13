@@ -32,7 +32,7 @@ module LaunchpicsConfig
           "fields" => [
             {
               "active" => true,
-              "name" => "image_id",
+              "name" => "imageId",
               "req" => true,
               "type" => "`$STRING`",
               "index$" => 0,
@@ -46,7 +46,7 @@ module LaunchpicsConfig
             },
             {
               "active" => true,
-              "name" => "processed_image_id",
+              "name" => "processedImageId",
               "req" => false,
               "type" => "`$STRING`",
               "index$" => 2,
@@ -75,6 +75,7 @@ module LaunchpicsConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "POST",
                   "orig" => "/process",
                   "parts" => [
@@ -121,6 +122,7 @@ module LaunchpicsConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/health",
                   "parts" => [
@@ -174,6 +176,7 @@ module LaunchpicsConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "POST",
                   "orig" => "/upload",
                   "parts" => [
@@ -234,6 +237,7 @@ module LaunchpicsConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/images/{imageId}",
                   "parts" => [
@@ -281,6 +285,7 @@ module LaunchpicsConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "DELETE",
                   "orig" => "/images/{imageId}",
                   "parts" => [

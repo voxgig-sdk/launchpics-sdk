@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# Launchpics SDK exists test
 
 import pytest
 from launchpics_sdk import LaunchpicsSDK

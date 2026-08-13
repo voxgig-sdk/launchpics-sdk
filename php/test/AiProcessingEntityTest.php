@@ -44,7 +44,7 @@ class AiProcessingEntityTest extends TestCase
             Vs::getpath($setup["data"], "new.ai_processing"), "ai_processing_ref01"));
 
         $ai_processing_ref01_data_result = $ai_processing_ref01_ent->create($ai_processing_ref01_data, null);
-        $ai_processing_ref01_data = Helpers::to_map($ai_processing_ref01_data_result);
+        $ai_processing_ref01_data = Helpers::to_map(is_object($ai_processing_ref01_data_result) && method_exists($ai_processing_ref01_data_result, 'data_get') ? $ai_processing_ref01_data_result->data_get() : $ai_processing_ref01_data_result);
         $this->assertNotNull($ai_processing_ref01_data);
 
     }

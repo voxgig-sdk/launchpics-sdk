@@ -15,9 +15,9 @@ declare(strict_types=1);
 /** AiProcessing entity data model. */
 class AiProcessing
 {
-    public string $image_id;
+    public string $imageId;
     public string $instruction;
-    public ?string $processed_image_id = null;
+    public ?string $processedImageId = null;
     public ?bool $success = null;
     public ?string $url = null;
 }
@@ -25,9 +25,9 @@ class AiProcessing
 /** Request payload for AiProcessing#create. */
 class AiProcessingCreateData
 {
-    public string $image_id;
+    public string $imageId;
     public string $instruction;
-    public ?string $processed_image_id = null;
+    public ?string $processedImageId = null;
     public ?bool $success = null;
     public ?string $url = null;
 }

@@ -37,7 +37,7 @@ class AiProcessingEntityTest < Minitest::Test
       Vs.getpath(setup[:data], "new.ai_processing"), "ai_processing_ref01"))
 
     ai_processing_ref01_data_result = ai_processing_ref01_ent.create(ai_processing_ref01_data, nil)
-    ai_processing_ref01_data = Helpers.to_map(ai_processing_ref01_data_result)
+    ai_processing_ref01_data = Helpers.to_map(ai_processing_ref01_data_result.respond_to?(:data_get) ? ai_processing_ref01_data_result.data_get : ai_processing_ref01_data_result)
     assert !ai_processing_ref01_data.nil?
 
   end

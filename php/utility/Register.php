@@ -23,6 +23,7 @@ require_once __DIR__ . '/MakeUrl.php';
 require_once __DIR__ . '/Param.php';
 require_once __DIR__ . '/PrepareAuth.php';
 require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
 require_once __DIR__ . '/PrepareHeaders.php';
 require_once __DIR__ . '/PrepareMethod.php';
 require_once __DIR__ . '/PrepareParams.php';
@@ -59,6 +60,8 @@ LaunchpicsUtility::setRegistrar(function (LaunchpicsUtility $u): void {
     $u->prepare_params = [LaunchpicsPrepareParams::class, 'call'];
     $u->prepare_path = [LaunchpicsPreparePath::class, 'call'];
     $u->prepare_query = [LaunchpicsPrepareQuery::class, 'call'];
+    $u->graphql_body = [LaunchpicsGraphql::class, 'body'];
+    $u->graphql_errors = [LaunchpicsGraphql::class, 'errors'];
     $u->result_basic = [LaunchpicsResultBasic::class, 'call'];
     $u->result_body = [LaunchpicsResultBody::class, 'call'];
     $u->result_headers = [LaunchpicsResultHeaders::class, 'call'];

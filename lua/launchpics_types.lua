@@ -7,16 +7,16 @@
 -- edit by hand.
 
 ---@class AiProcessing
----@field image_id string
+---@field imageId string
 ---@field instruction string
----@field processed_image_id? string
+---@field processedImageId? string
 ---@field success? boolean
 ---@field url? string
 
 ---@class AiProcessingCreateData
----@field image_id string
+---@field imageId string
 ---@field instruction string
----@field processed_image_id? string
+---@field processedImageId? string
 ---@field success? boolean
 ---@field url? string
 

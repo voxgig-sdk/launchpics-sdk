@@ -2,25 +2,25 @@
   "existing": {
     "ai_processing": {
       "AI_PROCESSING00": {
-        "image_id": "IMAGE01",
+        "imageId": "s32",
         "instruction": "s33",
-        "processed_image_id": "PROCESSED_IMAGE01",
+        "processedImageId": "s34",
         "success": false,
         "url": "s36",
         "id": "AI_PROCESSING00"
       },
       "AI_PROCESSING01": {
-        "image_id": "IMAGE01",
+        "imageId": "s64",
         "instruction": "s65",
-        "processed_image_id": "PROCESSED_IMAGE01",
+        "processedImageId": "s66",
         "success": false,
         "url": "s68",
         "id": "AI_PROCESSING01"
       },
       "AI_PROCESSING02": {
-        "image_id": "IMAGE01",
+        "imageId": "s96",
         "instruction": "s97",
-        "processed_image_id": "PROCESSED_IMAGE01",
+        "processedImageId": "s98",
         "success": false,
         "url": "s9a",
         "id": "AI_PROCESSING02"
@@ -30,9 +30,9 @@
   "new": {
     "ai_processing": {
       "ai_processing_ref01": {
-        "image_id": "IMAGE01",
+        "imageId": "sc8",
         "instruction": "sc9",
-        "processed_image_id": "PROCESSED_IMAGE01",
+        "processedImageId": "sca",
         "success": false,
         "url": "scc"
       }

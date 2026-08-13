@@ -96,9 +96,9 @@ ai_processing = client.AiProcessing()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `image_id` | `str` | Yes |  |
+| `imageId` | `str` | Yes |  |
 | `instruction` | `str` | Yes |  |
-| `processed_image_id` | `str` | No |  |
+| `processedImageId` | `str` | No |  |
 | `success` | `bool` | No |  |
 | `url` | `str` | No |  |
 
@@ -110,7 +110,7 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.AiProcessing().create({
-    "image_id": "example_image_id",  # str
+    "imageId": "example_imageId",  # str
     "instruction": "example_instruction",  # str
 })
 ```

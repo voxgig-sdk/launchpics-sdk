@@ -58,7 +58,7 @@ func TestAiProcessingEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("create failed: %v", err)
 		}
-		aiProcessingRef01Data = core.ToMapAny(aiProcessingRef01DataResult)
+		aiProcessingRef01Data = core.ToMapAny(entityData(aiProcessingRef01DataResult))
 		if aiProcessingRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}

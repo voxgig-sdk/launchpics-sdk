@@ -10,13 +10,13 @@
 
 # AiProcessing entity data model.
 #
-# @!attribute [rw] image_id
+# @!attribute [rw] imageId
 #   @return [String]
 #
 # @!attribute [rw] instruction
 #   @return [String]
 #
-# @!attribute [rw] processed_image_id
+# @!attribute [rw] processedImageId
 #   @return [String, nil]
 #
 # @!attribute [rw] success
@@ -25,9 +25,9 @@
 # @!attribute [rw] url
 #   @return [String, nil]
 AiProcessing = Struct.new(
-  :image_id,
+  :imageId,
   :instruction,
-  :processed_image_id,
+  :processedImageId,
   :success,
   :url,
   keyword_init: true
@@ -35,13 +35,13 @@ AiProcessing = Struct.new(
 
 # Request payload for AiProcessing#create.
 #
-# @!attribute [rw] image_id
+# @!attribute [rw] imageId
 #   @return [String]
 #
 # @!attribute [rw] instruction
 #   @return [String]
 #
-# @!attribute [rw] processed_image_id
+# @!attribute [rw] processedImageId
 #   @return [String, nil]
 #
 # @!attribute [rw] success
@@ -50,9 +50,9 @@ AiProcessing = Struct.new(
 # @!attribute [rw] url
 #   @return [String, nil]
 AiProcessingCreateData = Struct.new(
-  :image_id,
+  :imageId,
   :instruction,
-  :processed_image_id,
+  :processedImageId,
   :success,
   :url,
   keyword_init: true

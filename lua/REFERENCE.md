@@ -99,9 +99,9 @@ local ai_processing = client:AiProcessing(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `image_id` | `string` | Yes |  |
+| `imageId` | `string` | Yes |  |
 | `instruction` | `string` | Yes |  |
-| `processed_image_id` | `string` | No |  |
+| `processedImageId` | `string` | No |  |
 | `success` | `boolean` | No |  |
 | `url` | `string` | No |  |
 
@@ -113,7 +113,7 @@ Create a new entity with the given data.
 
 ```lua
 local result, err = client:AiProcessing():create({
-  image_id = --[[ string ]],
+  imageId = --[[ string ]],
   instruction = --[[ string ]],
 })
 ```

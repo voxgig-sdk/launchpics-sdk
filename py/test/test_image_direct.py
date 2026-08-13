@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from launchpics_sdk.utility.voxgig_struct import voxgig_struct as vs
 from launchpics_sdk import LaunchpicsSDK
-from core import helpers
+from launchpics_sdk.core import helpers
 from test import runner
 
 

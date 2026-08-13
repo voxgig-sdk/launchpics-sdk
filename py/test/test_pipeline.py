@@ -16,11 +16,11 @@
 import pytest
 
 from launchpics_sdk import LaunchpicsSDK
-from core.error import LaunchpicsError
-from core.result import LaunchpicsResult
-from core.response import LaunchpicsResponse
-from core.spec import LaunchpicsSpec
-from feature.base_feature import LaunchpicsBaseFeature
+from launchpics_sdk.core.error import LaunchpicsError
+from launchpics_sdk.core.result import LaunchpicsResult
+from launchpics_sdk.core.response import LaunchpicsResponse
+from launchpics_sdk.core.spec import LaunchpicsSpec
+from launchpics_sdk.feature.base_feature import LaunchpicsBaseFeature
 
 
 def _client():
