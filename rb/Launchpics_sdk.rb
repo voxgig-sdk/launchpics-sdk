@@ -28,7 +28,7 @@ class LaunchpicsSDK
     utility = LaunchpicsUtility.new
     @_utility = utility
 
-    config = LaunchpicsConfig.make_config
+    config = LaunchpicsConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

@@ -40,7 +40,7 @@ class LaunchpicsSDK
         $utility = new LaunchpicsUtility();
         $this->_utility = $utility;
 
-        $config = LaunchpicsConfig::make_config();
+        $config = LaunchpicsConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

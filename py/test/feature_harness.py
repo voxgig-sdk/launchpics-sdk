@@ -14,7 +14,7 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from launchpics_sdk.config import make_config
+from launchpics_sdk.config import shared_config
 from launchpics_sdk.features import _make_feature
 from launchpics_sdk.core.control import LaunchpicsControl
 from launchpics_sdk.core.error import LaunchpicsError
@@ -24,7 +24,7 @@ from launchpics_sdk.core.spec import LaunchpicsSpec
 
 # True when this SDK was generated with the named feature.
 def has_feature(name):
-    feature = make_config().get("feature")
+    feature = shared_config().get("feature")
     return isinstance(feature, dict) and feature.get(name) is not None
 
 

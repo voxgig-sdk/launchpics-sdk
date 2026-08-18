@@ -15,7 +15,7 @@ require_relative "../Launchpics_sdk"
 module LaunchpicsFeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = LaunchpicsConfig.make_config["feature"]
+    f = LaunchpicsConfig.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 
