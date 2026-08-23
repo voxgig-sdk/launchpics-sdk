@@ -36,18 +36,21 @@
               "active": true,
               "name": "imageId",
               "req": true,
+              "short": "ID of the image to process",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "instruction",
               "req": true,
+              "short": "Plain English description of desired edits",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "processedImageId",
               "req": false,
+              "short": "ID of the newly processed image",
               "type": "`$STRING`"
             },
             {
@@ -60,6 +63,7 @@
               "active": true,
               "name": "url",
               "req": false,
+              "short": "URL to access the processed image",
               "type": "`$STRING`"
             }
           ],
@@ -148,6 +152,7 @@
               "active": true,
               "name": "id",
               "req": false,
+              "short": "Unique identifier for the uploaded image",
               "type": "`$STRING`"
             },
             {
@@ -160,6 +165,7 @@
               "active": true,
               "name": "url",
               "req": false,
+              "short": "Unique URL to access the uploaded image",
               "type": "`$STRING`"
             }
           ],

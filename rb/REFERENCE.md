@@ -102,11 +102,11 @@ ai_processing = client.AiProcessing
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `imageId` | `String` | Yes |  |
-| `instruction` | `String` | Yes |  |
-| `processedImageId` | `String` | No |  |
+| `imageId` | `String` | Yes | ID of the image to process |
+| `instruction` | `String` | Yes | Plain English description of desired edits |
+| `processedImageId` | `String` | No | ID of the newly processed image |
 | `success` | `Boolean` | No |  |
-| `url` | `String` | No |  |
+| `url` | `String` | No | URL to access the processed image |
 
 ### Operations
 
@@ -214,9 +214,9 @@ image = client.Image
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `String` | No |  |
+| `id` | `String` | No | Unique identifier for the uploaded image |
 | `success` | `Boolean` | No |  |
-| `url` | `String` | No |  |
+| `url` | `String` | No | Unique URL to access the uploaded image |
 
 ### Operations
 

@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "Launchpics",
+			"slug": "launchpics",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -39,15 +42,18 @@ func MakeConfig() map[string]any {
 					map[string]any{
 						"name": "imageId",
 						"req": true,
+						"short": "ID of the image to process",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "instruction",
 						"req": true,
+						"short": "Plain English description of desired edits",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "processedImageId",
+						"short": "ID of the newly processed image",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -56,6 +62,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "url",
+						"short": "URL to access the processed image",
 						"type": "`$STRING`",
 					},
 				},
@@ -128,6 +135,7 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "id",
+						"short": "Unique identifier for the uploaded image",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -136,6 +144,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "url",
+						"short": "Unique URL to access the uploaded image",
 						"type": "`$STRING`",
 					},
 				},

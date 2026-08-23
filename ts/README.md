@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -294,11 +294,11 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `imageId` |  |
-| `instruction` |  |
-| `processedImageId` |  |
+| `imageId` | ID of the image to process |
+| `instruction` | Plain English description of desired edits |
+| `processedImageId` | ID of the newly processed image |
 | `success` |  |
-| `url` |  |
+| `url` | URL to access the processed image |
 
 Operations: create.
 
@@ -319,9 +319,9 @@ API path: `/health`
 
 | Field | Description |
 | --- | --- |
-| `id` |  |
+| `id` | Unique identifier for the uploaded image |
 | `success` |  |
-| `url` |  |
+| `url` | Unique URL to access the uploaded image |
 
 Operations: create, load, remove.
 
@@ -346,11 +346,11 @@ Create an instance: `const ai_processing = client.AiProcessing()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `imageId` | `string` |  |
-| `instruction` | `string` |  |
-| `processedImageId` | `string` |  |
+| `imageId` | `string` | ID of the image to process |
+| `instruction` | `string` | Plain English description of desired edits |
+| `processedImageId` | `string` | ID of the newly processed image |
 | `success` | `boolean` |  |
-| `url` | `string` |  |
+| `url` | `string` | URL to access the processed image |
 
 #### Example: Create
 
@@ -402,9 +402,9 @@ Create an instance: `const image = client.Image()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | `string` |  |
+| `id` | `string` | Unique identifier for the uploaded image |
 | `success` | `boolean` |  |
-| `url` | `string` |  |
+| `url` | `string` | Unique URL to access the uploaded image |
 
 #### Example: Load
 

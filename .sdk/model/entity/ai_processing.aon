@@ -8,16 +8,19 @@ main: kit: entity: ai_processing: {
     {
       name: "imageId"
       req: true
+      short: "ID of the image to process"
       type: "`$STRING`"
     }
     {
       name: "instruction"
       req: true
+      short: "Plain English description of desired edits"
       type: "`$STRING`"
     }
     {
       name: "processedImageId"
       req: false
+      short: "ID of the newly processed image"
       type: "`$STRING`"
     }
     {
@@ -28,6 +31,7 @@ main: kit: entity: ai_processing: {
     {
       name: "url"
       req: false
+      short: "URL to access the processed image"
       type: "`$STRING`"
     }
   ]

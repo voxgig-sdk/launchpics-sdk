@@ -19,9 +19,20 @@ class Config {
     return fi
   }
 
+  // False for a feature added at runtime via options.extend (station's
+  // adopt path) - the constructor uses this to skip makeFeature for names
+  // no generated class backs.
+  hasFeature(this: any, fn: string) {
+    return null != FEATURE_CLASS[fn]
+  }
+
 
   main = {
     name: 'Launchpics',
+        slug: "launchpics",
+    version: "0.0.1",
+    target: "ts",
+
   }
 
 
@@ -67,15 +78,18 @@ class Config {
         {
           "name": "imageId",
           "req": true,
+          "short": "ID of the image to process",
           "type": "`$STRING`"
         },
         {
           "name": "instruction",
           "req": true,
+          "short": "Plain English description of desired edits",
           "type": "`$STRING`"
         },
         {
           "name": "processedImageId",
+          "short": "ID of the newly processed image",
           "type": "`$STRING`"
         },
         {
@@ -84,6 +98,7 @@ class Config {
         },
         {
           "name": "url",
+          "short": "URL to access the processed image",
           "type": "`$STRING`"
         }
       ],
@@ -156,6 +171,7 @@ class Config {
       "fields": [
         {
           "name": "id",
+          "short": "Unique identifier for the uploaded image",
           "type": "`$STRING`"
         },
         {
@@ -164,6 +180,7 @@ class Config {
         },
         {
           "name": "url",
+          "short": "Unique URL to access the uploaded image",
           "type": "`$STRING`"
         }
       ],

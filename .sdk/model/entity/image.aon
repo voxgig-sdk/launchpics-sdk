@@ -8,6 +8,7 @@ main: kit: entity: image: {
     {
       name: "id"
       req: false
+      short: "Unique identifier for the uploaded image"
       type: "`$STRING`"
     }
     {
@@ -18,6 +19,7 @@ main: kit: entity: image: {
     {
       name: "url"
       req: false
+      short: "Unique URL to access the uploaded image"
       type: "`$STRING`"
     }
   ]

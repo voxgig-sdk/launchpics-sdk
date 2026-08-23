@@ -246,11 +246,11 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `imageId` |  |
-| `instruction` |  |
-| `processedImageId` |  |
+| `imageId` | ID of the image to process |
+| `instruction` | Plain English description of desired edits |
+| `processedImageId` | ID of the newly processed image |
 | `success` |  |
-| `url` |  |
+| `url` | URL to access the processed image |
 
 Operations: Create.
 
@@ -271,9 +271,9 @@ API path: `/health`
 
 | Field | Description |
 | --- | --- |
-| `id` |  |
+| `id` | Unique identifier for the uploaded image |
 | `success` |  |
-| `url` |  |
+| `url` | Unique URL to access the uploaded image |
 
 Operations: Create, Load, Remove.
 
@@ -298,11 +298,11 @@ Create an instance: `ai_processing = client.AiProcessing()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `imageId` | `str` |  |
-| `instruction` | `str` |  |
-| `processedImageId` | `str` |  |
+| `imageId` | `str` | ID of the image to process |
+| `instruction` | `str` | Plain English description of desired edits |
+| `processedImageId` | `str` | ID of the newly processed image |
 | `success` | `bool` |  |
-| `url` | `str` |  |
+| `url` | `str` | URL to access the processed image |
 
 #### Example: Create
 
@@ -354,9 +354,9 @@ Create an instance: `image = client.Image()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | `str` |  |
+| `id` | `str` | Unique identifier for the uploaded image |
 | `success` | `bool` |  |
-| `url` | `str` |  |
+| `url` | `str` | Unique URL to access the uploaded image |
 
 #### Example: Load
 

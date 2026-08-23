@@ -107,11 +107,11 @@ fmt.Println(aiProcessing.GetName()) // "ai_processing"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `imageId` | `string` | Yes |  |
-| `instruction` | `string` | Yes |  |
-| `processedImageId` | `string` | No |  |
+| `imageId` | `string` | Yes | ID of the image to process |
+| `instruction` | `string` | Yes | Plain English description of desired edits |
+| `processedImageId` | `string` | No | ID of the newly processed image |
 | `success` | `bool` | No |  |
-| `url` | `string` | No |  |
+| `url` | `string` | No | URL to access the processed image |
 
 ### Operations
 
@@ -217,9 +217,9 @@ fmt.Println(image.GetName()) // "image"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `string` | No |  |
+| `id` | `string` | No | Unique identifier for the uploaded image |
 | `success` | `bool` | No |  |
-| `url` | `string` | No |  |
+| `url` | `string` | No | Unique URL to access the uploaded image |
 
 ### Operations
 

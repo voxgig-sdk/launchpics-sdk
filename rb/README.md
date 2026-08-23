@@ -239,11 +239,11 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `imageId` |  |
-| `instruction` |  |
-| `processedImageId` |  |
+| `imageId` | ID of the image to process |
+| `instruction` | Plain English description of desired edits |
+| `processedImageId` | ID of the newly processed image |
 | `success` |  |
-| `url` |  |
+| `url` | URL to access the processed image |
 
 Operations: Create.
 
@@ -264,9 +264,9 @@ API path: `/health`
 
 | Field | Description |
 | --- | --- |
-| `id` |  |
+| `id` | Unique identifier for the uploaded image |
 | `success` |  |
-| `url` |  |
+| `url` | Unique URL to access the uploaded image |
 
 Operations: Create, Load, Remove.
 
@@ -291,11 +291,11 @@ Create an instance: `ai_processing = client.AiProcessing`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `imageId` | `String` |  |
-| `instruction` | `String` |  |
-| `processedImageId` | `String` |  |
+| `imageId` | `String` | ID of the image to process |
+| `instruction` | `String` | Plain English description of desired edits |
+| `processedImageId` | `String` | ID of the newly processed image |
 | `success` | `Boolean` |  |
-| `url` | `String` |  |
+| `url` | `String` | URL to access the processed image |
 
 #### Example: Create
 
@@ -348,9 +348,9 @@ Create an instance: `image = client.Image`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | `String` |  |
+| `id` | `String` | Unique identifier for the uploaded image |
 | `success` | `Boolean` |  |
-| `url` | `String` |  |
+| `url` | `String` | Unique URL to access the uploaded image |
 
 #### Example: Load
 

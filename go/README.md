@@ -6,7 +6,7 @@ The Golang SDK for the Launchpics API — an entity-oriented client using standa
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.AiProcessing(nil)` — each with the same small set of operations (`Load`, `Create`, `Remove`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -267,11 +267,11 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"imageId"` |  |
-| `"instruction"` |  |
-| `"processedImageId"` |  |
+| `"imageId"` | ID of the image to process |
+| `"instruction"` | Plain English description of desired edits |
+| `"processedImageId"` | ID of the newly processed image |
 | `"success"` |  |
-| `"url"` |  |
+| `"url"` | URL to access the processed image |
 
 Operations: Create.
 
@@ -292,9 +292,9 @@ API path: `/health`
 
 | Field | Description |
 | --- | --- |
-| `"id"` |  |
+| `"id"` | Unique identifier for the uploaded image |
 | `"success"` |  |
-| `"url"` |  |
+| `"url"` | Unique URL to access the uploaded image |
 
 Operations: Create, Load, Remove.
 
@@ -319,11 +319,11 @@ Create an instance: `aiProcessing := client.AiProcessing(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `imageId` | `string` |  |
-| `instruction` | `string` |  |
-| `processedImageId` | `string` |  |
+| `imageId` | `string` | ID of the image to process |
+| `instruction` | `string` | Plain English description of desired edits |
+| `processedImageId` | `string` | ID of the newly processed image |
 | `success` | `bool` |  |
-| `url` | `string` |  |
+| `url` | `string` | URL to access the processed image |
 
 #### Example: Create
 
@@ -383,9 +383,9 @@ Create an instance: `image := client.Image(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | `string` |  |
+| `id` | `string` | Unique identifier for the uploaded image |
 | `success` | `bool` |  |
-| `url` | `string` |  |
+| `url` | `string` | Unique URL to access the uploaded image |
 
 #### Example: Load
 

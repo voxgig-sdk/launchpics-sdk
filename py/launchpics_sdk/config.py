@@ -28,6 +28,9 @@ def make_config():
     return {
         "main": {
             "name": "Launchpics",
+            "slug": "launchpics",
+            "version": "0.0.1",
+            "target": "py",
         },
         "feature": {
             "test": {
@@ -56,15 +59,18 @@ def make_config():
           {
             "name": "imageId",
             "req": True,
+            "short": "ID of the image to process",
             "type": "`$STRING`",
           },
           {
             "name": "instruction",
             "req": True,
+            "short": "Plain English description of desired edits",
             "type": "`$STRING`",
           },
           {
             "name": "processedImageId",
+            "short": "ID of the newly processed image",
             "type": "`$STRING`",
           },
           {
@@ -73,6 +79,7 @@ def make_config():
           },
           {
             "name": "url",
+            "short": "URL to access the processed image",
             "type": "`$STRING`",
           },
         ],
@@ -145,6 +152,7 @@ def make_config():
         "fields": [
           {
             "name": "id",
+            "short": "Unique identifier for the uploaded image",
             "type": "`$STRING`",
           },
           {
@@ -153,6 +161,7 @@ def make_config():
           },
           {
             "name": "url",
+            "short": "Unique URL to access the uploaded image",
             "type": "`$STRING`",
           },
         ],
