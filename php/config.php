@@ -42,6 +42,7 @@ class LaunchpicsConfig
           'options' => [
             'active' => false,
           ],
+          'transport' => 'base',
         ],
             ],
             "options" => [

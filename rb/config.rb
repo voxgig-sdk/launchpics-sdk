@@ -28,6 +28,7 @@ module LaunchpicsConfig
           "options" => {
             "active" => false,
           },
+          "transport" => "base",
         },
       },
       "options" => {
