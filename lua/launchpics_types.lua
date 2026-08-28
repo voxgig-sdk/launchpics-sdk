@@ -35,6 +35,9 @@
 
 ---@class ImageLoadMatch
 ---@field id string
+---@field format? string
+---@field height? number
+---@field width? number
 
 ---@class ImageCreateData
 ---@field id? string

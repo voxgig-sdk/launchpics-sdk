@@ -58,6 +58,9 @@ class Image
 class ImageLoadMatch
 {
     public string $id;
+    public ?string $format = null;
+    public ?int $height = null;
+    public ?int $width = null;
 }
 
 /** Request payload for Image#create. */

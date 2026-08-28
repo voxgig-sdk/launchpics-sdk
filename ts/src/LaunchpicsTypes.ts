@@ -39,6 +39,9 @@ export interface Image {
 
 export interface ImageLoadMatch {
   id: string
+  format?: string
+  height?: number
+  width?: number
 }
 
 export interface ImageCreateData {

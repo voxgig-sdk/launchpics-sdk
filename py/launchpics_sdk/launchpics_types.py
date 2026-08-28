@@ -54,8 +54,14 @@ class Image(TypedDict, total=False):
     url: str
 
 
-class ImageLoadMatch(TypedDict):
+class ImageLoadMatchRequired(TypedDict):
     id: str
+
+
+class ImageLoadMatch(ImageLoadMatchRequired, total=False):
+    format: str
+    height: int
+    width: int
 
 
 class ImageCreateData(TypedDict, total=False):

@@ -52,6 +52,9 @@ type Image struct {
 // ImageLoadMatch is the typed request payload for Image.LoadTyped.
 type ImageLoadMatch struct {
 	Id string `json:"id"`
+	Format *string `json:"format,omitempty"`
+	Height *int `json:"height,omitempty"`
+	Width *int `json:"width,omitempty"`
 }
 
 // ImageCreateData is the typed request payload for Image.CreateTyped.

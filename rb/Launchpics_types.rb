@@ -105,8 +105,20 @@ Image = Struct.new(
 #
 # @!attribute [rw] id
 #   @return [String]
+#
+# @!attribute [rw] format
+#   @return [String, nil]
+#
+# @!attribute [rw] height
+#   @return [Integer, nil]
+#
+# @!attribute [rw] width
+#   @return [Integer, nil]
 ImageLoadMatch = Struct.new(
   :id,
+  :format,
+  :height,
+  :width,
   keyword_init: true
 )
 
