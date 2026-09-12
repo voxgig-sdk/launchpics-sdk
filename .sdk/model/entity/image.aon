@@ -17,6 +17,7 @@ main: kit: entity: image: {
       type: "`$BOOLEAN`"
     }
     {
+      format: "uri"
       name: "url"
       req: false
       short: "Unique URL to access the uploaded image"
@@ -37,8 +38,10 @@ main: kit: entity: image: {
         {
           method: "POST"
           orig: "/upload"
-          parts: [
-            "upload"
+          segments: [
+            {
+              lit: "upload"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -87,15 +90,19 @@ main: kit: entity: image: {
           }
           method: "GET"
           orig: "/images/{imageId}"
-          parts: [
-            "images"
-            "{id}"
-          ]
           rename: {
             param: {
               imageId: "id"
             }
           }
+          segments: [
+            {
+              lit: "images"
+            }
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "format"
@@ -128,15 +135,19 @@ main: kit: entity: image: {
           }
           method: "DELETE"
           orig: "/images/{imageId}"
-          parts: [
-            "images"
-            "{id}"
-          ]
           rename: {
             param: {
               imageId: "id"
             }
           }
+          segments: [
+            {
+              lit: "images"
+            }
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "id"

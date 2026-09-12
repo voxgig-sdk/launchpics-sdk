@@ -70,6 +70,7 @@ module LaunchpicsConfig
               "type" => "`$BOOLEAN`",
             },
             {
+              "format" => "uri",
               "name" => "url",
               "short" => "URL to access the processed image",
               "type" => "`$STRING`",
@@ -86,14 +87,19 @@ module LaunchpicsConfig
                   "kind" => "http",
                   "method" => "POST",
                   "orig" => "/process",
-                  "parts" => [
-                    "process",
+                  "segments" => [
+                    {
+                      "lit" => "process",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "process",
+                  ],
                 },
               ],
             },
@@ -109,6 +115,7 @@ module LaunchpicsConfig
               "type" => "`$STRING`",
             },
             {
+              "format" => "date-time",
               "name" => "timestamp",
               "type" => "`$STRING`",
             },
@@ -124,14 +131,19 @@ module LaunchpicsConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/health",
-                  "parts" => [
-                    "health",
+                  "segments" => [
+                    {
+                      "lit" => "health",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "health",
+                  ],
                 },
               ],
             },
@@ -152,11 +164,16 @@ module LaunchpicsConfig
               "type" => "`$BOOLEAN`",
             },
             {
+              "format" => "uri",
               "name" => "url",
               "short" => "Unique URL to access the uploaded image",
               "type" => "`$STRING`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "image",
           "op" => {
             "create" => {
@@ -168,14 +185,19 @@ module LaunchpicsConfig
                   "kind" => "http",
                   "method" => "POST",
                   "orig" => "/upload",
-                  "parts" => [
-                    "upload",
+                  "segments" => [
+                    {
+                      "lit" => "upload",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "upload",
+                  ],
                 },
               ],
             },
@@ -218,15 +240,19 @@ module LaunchpicsConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/images/{imageId}",
-                  "parts" => [
-                    "images",
-                    "{id}",
-                  ],
                   "rename" => {
                     "param" => {
                       "imageId" => "id",
                     },
                   },
+                  "segments" => [
+                    {
+                      "lit" => "images",
+                    },
+                    {
+                      "var" => "id",
+                    },
+                  ],
                   "select" => {
                     "exist" => [
                       "format",
@@ -239,6 +265,10 @@ module LaunchpicsConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "images",
+                    "{id}",
+                  ],
                 },
               ],
             },
@@ -261,15 +291,19 @@ module LaunchpicsConfig
                   "kind" => "http",
                   "method" => "DELETE",
                   "orig" => "/images/{imageId}",
-                  "parts" => [
-                    "images",
-                    "{id}",
-                  ],
                   "rename" => {
                     "param" => {
                       "imageId" => "id",
                     },
                   },
+                  "segments" => [
+                    {
+                      "lit" => "images",
+                    },
+                    {
+                      "var" => "id",
+                    },
+                  ],
                   "select" => {
                     "exist" => [
                       "id",
@@ -279,6 +313,10 @@ module LaunchpicsConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "images",
+                    "{id}",
+                  ],
                 },
               ],
             },

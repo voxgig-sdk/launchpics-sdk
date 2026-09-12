@@ -52,7 +52,7 @@ func TestAiProcessingEntity(t *testing.T) {
 		// CREATE
 		aiProcessingRef01Ent := client.AiProcessing(nil)
 		aiProcessingRef01Data := core.ToMapAny(vs.GetProp(
-			vs.GetPath([]any{"new", "ai_processing"}, setup.data), "ai_processing_ref01"))
+			vs.GetPath(setup.data, []any{"new", "ai_processing"}), "ai_processing_ref01"))
 
 		aiProcessingRef01DataResult, err := aiProcessingRef01Ent.Create(aiProcessingRef01Data, nil)
 		if err != nil {
@@ -90,7 +90,7 @@ func ai_processingBasicSetup(extra map[string]any) *entityTestSetup {
 	client := sdk.TestSDK(options, extra)
 
 	// Generate idmap via transform, matching TS pattern.
-	idmap := vs.Transform(
+	idmap, _ := vs.Transform(
 		[]any{"ai_processing01", "ai_processing02", "ai_processing03"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
@@ -110,7 +110,7 @@ func ai_processingBasicSetup(extra map[string]any) *entityTestSetup {
 		"LAUNCHPICS_TEST_AI_PROCESSING_ENTID": idmap,
 		"LAUNCHPICS_TEST_LIVE":      "FALSE",
 		"LAUNCHPICS_TEST_EXPLAIN":   "FALSE",
-		"LAUNCHPICS_APIKEY":         "NONE",
+		"LAUNCHPICS_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["LAUNCHPICS_TEST_AI_PROCESSING_ENTID"])
@@ -119,11 +119,23 @@ func ai_processingBasicSetup(extra map[string]any) *entityTestSetup {
 	}
 
 	if env["LAUNCHPICS_TEST_LIVE"] == "TRUE" {
+		// An empty map, not a nil one: Merge returns nil when its last entry
+		// is nil, and BasicSetup is normally called with no extras - so a
+		// bare nil silently discarded the apikey and server values below.
+		extraOpts := extra
+		if extraOpts == nil {
+			extraOpts = map[string]any{}
+		}
+
 		mergedOpts := vs.Merge([]any{
+			// liveClientOptions() FIRST, so the generated fields below win:
+			// sdk-test-control.json's test.client.options adds to the live
+			// client, it does not redirect it.
+			liveClientOptions(),
 			map[string]any{
 				"apikey": env["LAUNCHPICS_APIKEY"],
 			},
-			extra,
+			extraOpts,
 		})
 		client = sdk.NewLaunchpicsSDK(core.ToMapAny(mergedOpts))
 	}

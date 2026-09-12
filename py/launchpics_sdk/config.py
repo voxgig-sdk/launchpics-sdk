@@ -1,6 +1,14 @@
 # Launchpics SDK configuration
 
 
+# The sekreto plugin DEFINITIONS the model selected per feature, imported
+# above by name from the modules the catalogue's active `plugin.def`
+# entries declare. Handed to each feature (secrets builds its Sekreto
+# with them): a provider kind not listed here is unknown to that SDK.
+FEATURE_PLUGINS = {
+}
+
+
 _shared_config = None
 
 
@@ -79,6 +87,7 @@ def make_config():
             "type": "`$BOOLEAN`",
           },
           {
+            "format": "uri",
             "name": "url",
             "short": "URL to access the processed image",
             "type": "`$STRING`",
@@ -95,14 +104,19 @@ def make_config():
                 "kind": "http",
                 "method": "POST",
                 "orig": "/process",
-                "parts": [
-                  "process",
+                "segments": [
+                  {
+                    "lit": "process",
+                  },
                 ],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "process",
+                ],
               },
             ],
           },
@@ -118,6 +132,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "timestamp",
             "type": "`$STRING`",
           },
@@ -133,14 +148,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/health",
-                "parts": [
-                  "health",
+                "segments": [
+                  {
+                    "lit": "health",
+                  },
                 ],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "health",
+                ],
               },
             ],
           },
@@ -161,11 +181,16 @@ def make_config():
             "type": "`$BOOLEAN`",
           },
           {
+            "format": "uri",
             "name": "url",
             "short": "Unique URL to access the uploaded image",
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "image",
         "op": {
           "create": {
@@ -177,14 +202,19 @@ def make_config():
                 "kind": "http",
                 "method": "POST",
                 "orig": "/upload",
-                "parts": [
-                  "upload",
+                "segments": [
+                  {
+                    "lit": "upload",
+                  },
                 ],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "upload",
+                ],
               },
             ],
           },
@@ -227,15 +257,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/images/{imageId}",
-                "parts": [
-                  "images",
-                  "{id}",
-                ],
                 "rename": {
                   "param": {
                     "imageId": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "images",
+                  },
+                  {
+                    "var": "id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "format",
@@ -248,6 +282,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "images",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -270,15 +308,19 @@ def make_config():
                 "kind": "http",
                 "method": "DELETE",
                 "orig": "/images/{imageId}",
-                "parts": [
-                  "images",
-                  "{id}",
-                ],
                 "rename": {
                   "param": {
                     "imageId": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "images",
+                  },
+                  {
+                    "var": "id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "id",
@@ -288,6 +330,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "images",
+                  "{id}",
+                ],
               },
             ],
           },

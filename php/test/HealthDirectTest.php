@@ -67,15 +67,17 @@ function health_direct_setup($mockres)
     $env = Runner::env_override([
         "LAUNCHPICS_TEST_HEALTH_ENTID" => [],
         "LAUNCHPICS_TEST_LIVE" => "FALSE",
-        "LAUNCHPICS_APIKEY" => "NONE",
+        "LAUNCHPICS_APIKEY" => "",
     ]);
 
     $live = $env["LAUNCHPICS_TEST_LIVE"] === "TRUE";
 
     if ($live) {
-        $merged_opts = [
+        // Merged so the generated fields win: sdk-test-control.json's
+        // test.client.options adds to the live client, it does not redirect it.
+        $merged_opts = array_merge(Runner::live_client_options(), [
             "apikey" => $env["LAUNCHPICS_APIKEY"],
-        ];
+        ]);
         $client = new LaunchpicsSDK($merged_opts);
         return [
             "client" => $client,

@@ -84,6 +84,7 @@ class LaunchpicsConfig
               'type' => '`$BOOLEAN`',
             ],
             [
+              'format' => 'uri',
               'name' => 'url',
               'short' => 'URL to access the processed image',
               'type' => '`$STRING`',
@@ -100,13 +101,18 @@ class LaunchpicsConfig
                   'kind' => 'http',
                   'method' => 'POST',
                   'orig' => '/process',
-                  'parts' => [
-                    'process',
+                  'segments' => [
+                    [
+                      'lit' => 'process',
+                    ],
                   ],
                   'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'process',
                   ],
                 ],
               ],
@@ -123,6 +129,7 @@ class LaunchpicsConfig
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'date-time',
               'name' => 'timestamp',
               'type' => '`$STRING`',
             ],
@@ -138,13 +145,18 @@ class LaunchpicsConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/health',
-                  'parts' => [
-                    'health',
+                  'segments' => [
+                    [
+                      'lit' => 'health',
+                    ],
                   ],
                   'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'health',
                   ],
                 ],
               ],
@@ -166,10 +178,15 @@ class LaunchpicsConfig
               'type' => '`$BOOLEAN`',
             ],
             [
+              'format' => 'uri',
               'name' => 'url',
               'short' => 'Unique URL to access the uploaded image',
               'type' => '`$STRING`',
             ],
+          ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
           ],
           'name' => 'image',
           'op' => [
@@ -182,13 +199,18 @@ class LaunchpicsConfig
                   'kind' => 'http',
                   'method' => 'POST',
                   'orig' => '/upload',
-                  'parts' => [
-                    'upload',
+                  'segments' => [
+                    [
+                      'lit' => 'upload',
+                    ],
                   ],
                   'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'upload',
                   ],
                 ],
               ],
@@ -232,13 +254,17 @@ class LaunchpicsConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/images/{imageId}',
-                  'parts' => [
-                    'images',
-                    '{id}',
-                  ],
                   'rename' => [
                     'param' => [
                       'imageId' => 'id',
+                    ],
+                  ],
+                  'segments' => [
+                    [
+                      'lit' => 'images',
+                    ],
+                    [
+                      'var' => 'id',
                     ],
                   ],
                   'select' => [
@@ -252,6 +278,10 @@ class LaunchpicsConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'images',
+                    '{id}',
                   ],
                 ],
               ],
@@ -275,13 +305,17 @@ class LaunchpicsConfig
                   'kind' => 'http',
                   'method' => 'DELETE',
                   'orig' => '/images/{imageId}',
-                  'parts' => [
-                    'images',
-                    '{id}',
-                  ],
                   'rename' => [
                     'param' => [
                       'imageId' => 'id',
+                    ],
+                  ],
+                  'segments' => [
+                    [
+                      'lit' => 'images',
+                    ],
+                    [
+                      'var' => 'id',
                     ],
                   ],
                   'select' => [
@@ -292,6 +326,10 @@ class LaunchpicsConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'images',
+                    '{id}',
                   ],
                 ],
               ],

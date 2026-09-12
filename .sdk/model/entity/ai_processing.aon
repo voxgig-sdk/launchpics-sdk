@@ -29,6 +29,7 @@ main: kit: entity: ai_processing: {
       type: "`$BOOLEAN`"
     }
     {
+      format: "uri"
       name: "url"
       req: false
       short: "URL to access the processed image"
@@ -44,8 +45,10 @@ main: kit: entity: ai_processing: {
         {
           method: "POST"
           orig: "/process"
-          parts: [
-            "process"
+          segments: [
+            {
+              lit: "process"
+            }
           ]
           transform: {
             req: "`reqdata`"

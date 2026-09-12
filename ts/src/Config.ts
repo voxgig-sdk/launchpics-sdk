@@ -10,6 +10,17 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
+// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
+// the model's active plugin groups. A feature that takes a `plugins` option
+// (secrets over sekreto) reads its own entry; a feature with no plugins has
+// none. Named imports above make each definition statically reachable, so
+// an SDK carries exactly the plugin modules its model selects — the same
+// leanness the old side-effect registry imports bought, without a registry.
+const FEATURE_PLUGINS: Record<string, any[]> = {
+  
+}
+
+
 class Config {
 
   makeFeature(this: any, fn: string) {
@@ -98,6 +109,7 @@ class Config {
           "type": "`$BOOLEAN`"
         },
         {
+          "format": "uri",
           "name": "url",
           "short": "URL to access the processed image",
           "type": "`$STRING`"
@@ -114,14 +126,19 @@ class Config {
               "kind": "http",
               "method": "POST",
               "orig": "/process",
-              "parts": [
-                "process"
+              "segments": [
+                {
+                  "lit": "process"
+                }
               ],
               "select": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "process"
+              ]
             }
           ]
         }
@@ -137,6 +154,7 @@ class Config {
           "type": "`$STRING`"
         },
         {
+          "format": "date-time",
           "name": "timestamp",
           "type": "`$STRING`"
         }
@@ -152,14 +170,19 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/health",
-              "parts": [
-                "health"
+              "segments": [
+                {
+                  "lit": "health"
+                }
               ],
               "select": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "health"
+              ]
             }
           ]
         }
@@ -180,11 +203,16 @@ class Config {
           "type": "`$BOOLEAN`"
         },
         {
+          "format": "uri",
           "name": "url",
           "short": "Unique URL to access the uploaded image",
           "type": "`$STRING`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "image",
       "op": {
         "create": {
@@ -196,14 +224,19 @@ class Config {
               "kind": "http",
               "method": "POST",
               "orig": "/upload",
-              "parts": [
-                "upload"
+              "segments": [
+                {
+                  "lit": "upload"
+                }
               ],
               "select": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "upload"
+              ]
             }
           ]
         },
@@ -246,15 +279,19 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/images/{imageId}",
-              "parts": [
-                "images",
-                "{id}"
-              ],
               "rename": {
                 "param": {
                   "imageId": "id"
                 }
               },
+              "segments": [
+                {
+                  "lit": "images"
+                },
+                {
+                  "var": "id"
+                }
+              ],
               "select": {
                 "exist": [
                   "format",
@@ -266,7 +303,11 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "images",
+                "{id}"
+              ]
             }
           ]
         },
@@ -289,15 +330,19 @@ class Config {
               "kind": "http",
               "method": "DELETE",
               "orig": "/images/{imageId}",
-              "parts": [
-                "images",
-                "{id}"
-              ],
               "rename": {
                 "param": {
                   "imageId": "id"
                 }
               },
+              "segments": [
+                {
+                  "lit": "images"
+                },
+                {
+                  "var": "id"
+                }
+              ],
               "select": {
                 "exist": [
                   "id"
@@ -306,7 +351,11 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "images",
+                "{id}"
+              ]
             }
           ]
         }
@@ -322,6 +371,7 @@ class Config {
 const config = new Config()
 
 export {
-  config
+  config,
+  FEATURE_PLUGINS,
 }
 
