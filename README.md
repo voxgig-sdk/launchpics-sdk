@@ -108,7 +108,7 @@ local result, err = client:Health():load()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/launchpics` | publish pending — [install from git tag](https://github.com/voxgig-sdk/launchpics-sdk/releases) |
+| TypeScript | `@voxgig-sdk/launchpics-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/launchpics-sdk/releases) |
 | Python | `voxgig-sdk-launchpics` | publish pending — [install from git tag](https://github.com/voxgig-sdk/launchpics-sdk/releases) |
 | PHP | `voxgig-sdk/launchpics` | publish pending — [install from git tag](https://github.com/voxgig-sdk/launchpics-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/launchpics-sdk/go` | `go get github.com/voxgig-sdk/launchpics-sdk/go@latest` |
@@ -122,7 +122,7 @@ local result, err = client:Health():load()
 ### TypeScript
 
 ```ts
-import { LaunchpicsSDK } from '@voxgig-sdk/launchpics'
+import { LaunchpicsSDK } from '@voxgig-sdk/launchpics-sdk'
 
 const client = new LaunchpicsSDK({
   apikey: process.env.LAUNCHPICS_APIKEY,

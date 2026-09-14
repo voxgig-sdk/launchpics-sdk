@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { LaunchpicsSDK } from '@voxgig-sdk/launchpics'
+import { LaunchpicsSDK } from '@voxgig-sdk/launchpics-sdk'
 
 const client = new LaunchpicsSDK({
   apikey: process.env.LAUNCHPICS_APIKEY,
@@ -502,7 +502,7 @@ launchpics/
 Import the SDK from the package root:
 
 ```ts
-import { LaunchpicsSDK } from '@voxgig-sdk/launchpics'
+import { LaunchpicsSDK } from '@voxgig-sdk/launchpics-sdk'
 ```
 
 ### Entity state
