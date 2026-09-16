@@ -25,5 +25,46 @@
         "timestamp": "s51"
       }
     }
+  },
+  "requests": {
+    "GET /health": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getHealth",
+        "parameters": [],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "status": {
+                      "example": "healthy",
+                      "type": "string"
+                    },
+                    "timestamp": {
+                      "format": "date-time",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "API is healthy and operational"
+          }
+        },
+        "securitySchemes": {
+          "ApiKeyAuth": {
+            "description": "API key for authentication",
+            "in": "header",
+            "name": "X-API-Key",
+            "type": "apiKey"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    }
   }
 }

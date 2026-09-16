@@ -4,7 +4,10 @@ declare(strict_types=1);
 // Launchpics SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class LaunchpicsFeatures
@@ -14,8 +17,14 @@ class LaunchpicsFeatures
         switch ($name) {
             case "base":
                 return new LaunchpicsBaseFeature();
+            case "ratelimit":
+                return new LaunchpicsRatelimitFeature();
+            case "retry":
+                return new LaunchpicsRetryFeature();
             case "test":
                 return new LaunchpicsTestFeature();
+            case "timeout":
+                return new LaunchpicsTimeoutFeature();
             default:
                 return new LaunchpicsBaseFeature();
         }
@@ -31,7 +40,10 @@ class LaunchpicsFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;

@@ -1,12 +1,18 @@
 # Launchpics SDK feature factory
 
 from launchpics_sdk.feature.base_feature import LaunchpicsBaseFeature
+from launchpics_sdk.feature.ratelimit_feature import LaunchpicsRatelimitFeature
+from launchpics_sdk.feature.retry_feature import LaunchpicsRetryFeature
 from launchpics_sdk.feature.test_feature import LaunchpicsTestFeature
+from launchpics_sdk.feature.timeout_feature import LaunchpicsTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: LaunchpicsBaseFeature(),
+    "ratelimit": lambda: LaunchpicsRatelimitFeature(),
+    "retry": lambda: LaunchpicsRetryFeature(),
     "test": lambda: LaunchpicsTestFeature(),
+    "timeout": lambda: LaunchpicsTimeoutFeature(),
 }
 
 
