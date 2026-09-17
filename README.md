@@ -108,12 +108,12 @@ local result, err = client:Health():load()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/launchpics-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/launchpics-sdk/releases) |
-| Python | `voxgig-sdk-launchpics` | publish pending — [install from git tag](https://github.com/voxgig-sdk/launchpics-sdk/releases) |
-| PHP | `voxgig-sdk/launchpics` | publish pending — [install from git tag](https://github.com/voxgig-sdk/launchpics-sdk/releases) |
+| TypeScript | `@voxgig-sdk/launchpics-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/launchpics-sdk/tags) |
+| Python | `voxgig-sdk-launchpics` | publish pending — [install from git tag](https://github.com/voxgig-sdk/launchpics-sdk/tags) |
+| PHP | `voxgig-sdk/launchpics` | publish pending — [install from git tag](https://github.com/voxgig-sdk/launchpics-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/launchpics-sdk/go` | `go get github.com/voxgig-sdk/launchpics-sdk/go@latest` |
-| Ruby | `voxgig-sdk-launchpics` | publish pending — [install from git tag](https://github.com/voxgig-sdk/launchpics-sdk/releases) |
-| Lua | `voxgig-sdk-launchpics` | publish pending — [install from git tag](https://github.com/voxgig-sdk/launchpics-sdk/releases) |
+| Ruby | `voxgig-sdk-launchpics` | publish pending — [install from git tag](https://github.com/voxgig-sdk/launchpics-sdk/tags) |
+| Lua | `voxgig-sdk-launchpics` | publish pending — [install from git tag](https://github.com/voxgig-sdk/launchpics-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/launchpics-sdk/go-cli` | `go install github.com/voxgig-sdk/launchpics-sdk/go-cli/cmd/launchpics@latest` |
 | Go MCP server | `github.com/voxgig-sdk/launchpics-sdk/go-mcp` | `go get github.com/voxgig-sdk/launchpics-sdk/go-mcp@latest` |
 

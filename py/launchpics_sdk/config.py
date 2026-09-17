@@ -106,6 +106,7 @@ def make_config():
             "base": "https://launch.pics/api",
             "auth": {
                 "prefix": "",
+                "name": "X-API-Key",
             },
             "headers": {
         "content-type": "application/json",

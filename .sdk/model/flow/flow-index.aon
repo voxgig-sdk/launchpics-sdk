@@ -1,5 +1,5 @@
 # Flows
 
-@"BasicAiProcessingFlow.aon"
-@"BasicHealthFlow.aon"
-@"BasicImageFlow.aon"
+@"./BasicAiProcessingFlow.aon"
+@"./BasicHealthFlow.aon"
+@"./BasicImageFlow.aon"
